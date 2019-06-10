@@ -1,0 +1,49 @@
+1. Faça um Programa que leia um vetor de 5 números inteiros e mostre-os. 
+R: v = [x for x in range(1,6)]
+for x in v:
+ print(x,end=" ")
+
+2. Faça um Programa que leia um vetor de 10 números reais e mostre-os na ordem inversa. 
+R: v = [1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10]
+v.reverse()
+for x in v:
+ print(x,end=" ")
+
+3. Crie uma lista com os 20 primeiros colocados do Campeonato Brasileiro de Futebol.
+ a) Faça um programa que mostre os 5 primeiros colocados;
+ b) Os últimos 4 colocados (zona de rebaixamento); 
+ c) Mostre a posição em que se encontra a Chapecoense;
+ d) Exiba a lista dos times em ordem alfabética;
+
+R: print('=' * 80 + f'\n{"EXERCÍCIO 73 - TIMES DE FUTEBOL":^80}\n' + '-' * 80)
+Teams = ('Palmeiras', 'Flamengo', 'Internacional', 'Grêmio', 'São Paulo', 'Atlético Mineiro', 'Athletico Paranaense',
+        'Cruzeiro', 'Botafogo', 'Santos', 'Bahia', 'Fluminense', 'Corinthians', 'Chapecoense', 'Ceará',
+        'Vasco da Gama', 'Fortaleza', 'CSA', 'Avaí', 'Goiás')
+print(f'PRIMEIROS COLOCADOS: {", ".join(Teams[0:5])}\nÚLTIMOS COLOCADOS: {", ".join(Teams[-4:21])}')
+print('-' * 80 + f'\n{"TIMES (EM ORDEM DE CLASSIFICAÇÃO):":^80}')
+for Counter, Team in enumerate(Teams):
+   print(Team, end=', ' if Counter <= 18 else '')
+   if Counter == 5 or Counter == 11 or Counter == 19:
+       print()
+print('-' * 80 + f'\n{"TIMES (EM ORDEM DE ALFABÉTICA):":^80}')
+for Counter, Team in enumerate(sorted(Teams)):
+   print(Team, end=', ' if Counter <= 18 else '')
+   if Counter == 6 or Counter == 13 or Counter == 19:
+       print()
+while True:
+   Search = str(input('-' * 80 + '\nDIGITE UM TIME PARA PROCURAR: ')).strip().lower()
+   for Counter, Team in enumerate(Teams):
+       if Team.lower() == Search:
+           print(f'{f"{Search.upper()} ENCONTRADO NA {Counter + 1}ª POSIÇÃO":^80}')
+           break
+   else:
+       print(f'{f"{Search.upper()} NÃO ENCONTRADO!":^80}')
+   while True:
+       Continue = str(input('-' * 80 + '\nPROCURAR OUTRO TIME? [S/N]: ')).strip().upper()[0]
+       if Continue == 'S':
+           break
+       elif Continue == 'N':
+           print('=' * 80)
+           exit()
+
+
